@@ -2,6 +2,10 @@ import { useContext, useState } from "react";
 import styles from "./Login.module.scss";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebook } from "react-icons/fa";
+
+import backround from "../../assets/backround.svg"
 
 function saveUser(user) {
   localStorage.setItem("user", JSON.stringify(user));
@@ -53,38 +57,52 @@ export default function Login() {
 
   return (
     <div className={styles.login}>
-      <h2>Sign In</h2>
-      <form onSubmit={handleSubmit}>
-        <div className={styles["form-control"]}>
-          <input
-            type="text"
-            value={userName}
-            id="userName"
-            required
-            onChange={(e) => setUserName(e.target.value)}
-          />
-        </div>
-        <div className={styles["form-control"]}>
-          <input
-            type="password"
-            value={password}
-            id="password"
-            required
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
+      <div className={styles.loginRight}>
+        <img src={backround} alt="abc" />
+      </div>
+      <div className={styles.loginLeft}>
+        <h2>Sign In</h2>
+        <form onSubmit={handleSubmit}>
+          <div className={styles["form-control"]}>
+            <input
+              type="text"
+              value={userName}
+              id="userName"
+              required
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </div>
+          <div className={styles["form-control"]}>
+            <input
+              type="password"
+              value={password}
+              id="password"
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
 
-        {error && <p className={styles.error}>Error: {error.message}</p>}
-        <div>
-          <button type="submit" disabled={loading}>
-            {loading ? "Loading..." : "Sign in"}
-          </button>
+          {error && <p className={styles.error}>Error: {error.message}</p>}
+          <div>
+            <button type="submit" disabled={loading}>
+              {loading ? "Loading..." : "Sign in"}
+            </button>
+          </div>
+        </form>
+        <div className={styles.socialMeida}>
+          <p>___________________________or____________________________</p>
+          <div>
+            <button>
+              <FcGoogle />
+              Google
+            </button>
+            <button>
+              <FaFacebook />
+              Facebook
+            </button>
+          </div>
+          <a href="#">Don't have you accaount sign up</a>
         </div>
-      </form>
-      <div className={styles.socialMeida}>
-        <p>
-          ___________________________or____________________________
-        </p>
       </div>
     </div>
   );
