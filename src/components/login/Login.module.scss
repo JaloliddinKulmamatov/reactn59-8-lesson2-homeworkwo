@@ -1,0 +1,41 @@
+$radius: 8px;
+
+.login {
+  width: min(450px, 90vw);
+      h2 {
+          margin-bottom: 10px;
+        }
+  button[type="submit"] {
+    background-color: #0ee656;
+    color: #000000;
+    width: 100%;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+
+
+.form-control {
+  margin-bottom: 2em;
+
+  label {
+    display: block;
+    text-align: left;
+  }
+
+  input {
+    $radius: 4px;
+    color: #b4b3b3;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: $radius;
+    border: 1px solid #000;
+  }
+}
+
+.error {
+  color: red;
+}
+}
